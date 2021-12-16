@@ -1,0 +1,17 @@
+{% block body %}
+
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href={{ path('contact') }}>Contact</a></li>
+            <li><a href={{ path('blog') }}>Blog</a></li>
+            <li><a href={{ path('create_post') }}>Add New Crab</a></li>
+        </ul>
+    </nav>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('contact') }}
+{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <ul>
+        {% if contacts is defined %}
+            <h1>Mes demandes de contact ({{ contacts|length }})</h1>
+            {% if contacts is not empty %}
+                {% for contact in contacts %}
+                    <li>
+                        <a href="{{ path('contactId', {id: contact.id}) }}">Demande de {{ contact.nom|upper }} {{ contact.prenom }}</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+        </ul>
+
+        {% if form is defined %}
+            {{ form(form) }}
+        {% endif %}
+
+        {% if contact is defined %}
+            <h2>Mon contact actuel</h2>
+            <ul>
+                <li>ID : {{ contact.id }}</li>
+                <li>Nom : {{ contact.nom }}</li>
+                <li>Prénom : {{ contact.prenom }}</li>
+                <li>Newsletter : {{ contact.newsletter }}</li>
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
